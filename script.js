@@ -8,6 +8,7 @@ var ans4 = document.getElementById("choice4");
 var answerbtn = document.querySelector(".answerbtn");
 var startContainer = document.getElementById("start-screen");
 var time = document.getElementById("time");
+var scoreEl = document.getElementById("highscores");
 
 
 
@@ -99,6 +100,7 @@ else{
 
 }
 }
+
 /*function stopTimer(){
     if(timer == 0){
         clearTimer(timer);
