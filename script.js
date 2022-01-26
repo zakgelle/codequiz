@@ -12,34 +12,53 @@ var time = document.getElementById("time");
 
 
 var questions = [{
-    question: "this is question 1",
-choice1: "this is answer 1",
-choice2: "this is answer 2",
-choice3: "this is answer 3",
-choice4:"this is answer 4",
-correct: "this is answer 2",
+    question: "Inside which HTML element do we put the JavaScript?",
+choice1: "<scripting>",
+choice2: "<script>",
+choice3: "<javascript>",
+choice4:"<js>",
+correct: "<script>",
 },
 {
-    question: "this is question 2",
-    choice1: "this is answer 1",
-    choice2: "this is answer 2",
-    choice3: "this is answer 3",
-    choice4:"this is answer 4",
-    correct: "this is answer 3",
+    question: "Which one these answer is not a javascript data types?",
+    choice1: "number",
+    choice2: "string",
+    choice3: "prompt",
+    choice4:"boolean",
+    correct: "prompt",
 },
 {
-    question: "this is question 3",
-    choice1: "this is answer 1",
-    choice2: "this is answer 2",
-    choice3: "this is answer 3",
-    choice4:"this is answer 4",
-    correct: "this is answer 1",
+    question: "In javascript , an array can used to store",
+    choice1: "methods",
+    choice2: "events",
+    choice3: "functions",
+    choice4:"none of these",
+    correct: "none of these",
 },
+{
+    question: "What is an if and if else statements in javascript",
+    choice1: "Quotations",
+    choice2: "Integers",
+    choice3: "Conditional statements",
+    choice4:"Methods",
+    correct: "Conditional statements",
+},
+{
+    question: "Objects are variables that can contains many ____ ",
+    choice1: "Methods",
+    choice2: "Brackets",
+    choice3: "Values",
+    choice4:"Statements",
+    correct: "Values",
+},
+
 
 
 ];
 
 var questionIndex = 0;
+
+var score = 0;
 
 var timer = 100;
 
@@ -59,7 +78,7 @@ function startQuiz(){
  ans2.setAttribute("value", questions[questionIndex].choice2);
  ans3.setAttribute("value", questions[questionIndex].choice3);
  ans4.setAttribute("value", questions[questionIndex].choice4);
-}
+};
 
 function setTime(){
 interval = setInterval(function(){
@@ -80,7 +99,12 @@ else{
 
 }
 }
-
+/*function stopTimer(){
+    if(timer == 0){
+        clearTimer(timer);
+    };
+    timer.textContent = "Time is up";
+}*/
 
 
 

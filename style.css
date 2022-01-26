@@ -77,3 +77,12 @@ h1{
 .hide{
   display: none;
 }
+
+ #questions{
+  text-align: center;
+  font-size: larger;
+  color: azure;
+  
+  
+ 
+}
