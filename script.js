@@ -8,7 +8,12 @@ var ans4 = document.getElementById("choice4");
 var answerbtn = document.querySelector(".answerbtn");
 var startContainer = document.getElementById("start-screen");
 var time = document.getElementById("time");
-var scoreEl = document.getElementById("highscores");
+var userInput = document.getElementById("userinput");
+var scoreEl = document.getElementById("score");
+var submit = document.getElementById("submit");
+var userName = document.getElementById("username");
+var scoreArr = []
+var endscore;
 
 
 
@@ -68,8 +73,11 @@ var interval;
 
 
 function startQuiz(){
+    if(questionIndex === questions.length){
+        endQuiz();
+    }
    
-    questionsContainer.style.display = "block";
+    questionsContainer.classList.replace("hide","show");
     question.textContent = questions[questionIndex].question;
     ans1.textContent = questions[questionIndex].choice1;
     ans2.textContent = questions[questionIndex].choice2;
@@ -85,12 +93,20 @@ function setTime(){
 interval = setInterval(function(){
     timer--;
 time.textContent = timer;
+if(timer == 0){
+    clearInterval(interval);
+time.textContent = "Time is up"
+
+};
+
 },1000)
 }
 
 function checkAnswer(buttonClick){
     if(buttonClick == questions[questionIndex].correct){
         questionIndex++;
+        score++;
+        scoreEl.innerHTML = parseInt(score)
         startQuiz()
     }
 else{
@@ -98,15 +114,16 @@ else{
     startQuiz();
     timer = timer - 10;
 
-}
-}
 
-/*function stopTimer(){
-    if(timer == 0){
-        clearTimer(timer);
-    };
-    timer.textContent = "Time is up";
-}*/
+}
+}
+function endQuiz(){
+    clearInterval(interval);
+    questionsContainer.style.display = "none";
+    userInput.style.display = "block";
+    endscore = score;
+
+}
 
 
 
@@ -125,3 +142,17 @@ answerbtn.addEventListener("click", ()=>{
     checkAnswer(buttonClick);
     
 })
+
+submit.addEventListener("click", ()=>{
+   var initials = userName.value.trim();
+   if(initials!== ""){
+       scoreArr = JSON.parse(localStorage.getItem("highscores"))|| [];
+       var userScore = {
+           initials: initials,
+           score: endscore,
+       }
+       scoreArr.push(userScore);
+       localStorage.setItem("highscores",JSON.stringify(scoreArr));
+   } 
+window.location.assign("highscore.html");
+} )
