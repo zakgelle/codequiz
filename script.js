@@ -106,7 +106,7 @@ function checkAnswer(buttonClick){
     if(buttonClick == questions[questionIndex].correct){
         questionIndex++;
         score++;
-        scoreEl.innerHTML = parseInt(score)
+        scoreEl.innerHTML=parseInt(score)
         startQuiz()
     }
 else{

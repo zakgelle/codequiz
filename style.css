@@ -115,3 +115,19 @@ h1{
   bottom: 40px;
   font-size: 2rem;
 }
+
+#score{
+  position: absolute;
+  top: 10px;
+  left: 160px;
+  text-decoration: none;
+
+}
+
+.score-txt{
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  text-decoration: none;
+}
+
